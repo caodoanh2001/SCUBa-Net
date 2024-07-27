@@ -8,7 +8,25 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 ## To-do list
 
 - [x] Update the implementation of SCUBa-Net.
-- [ ] Update datasets used in the study: KBSMC colon datasets, UHU, UBC prostate datasets, gastric and bladder datasets.
+- [x] Update datasets used in the study: KBSMC colon datasets, UHU, UBC prostate datasets, gastric and bladder datasets.
 - [ ] Document for constructing spatially-contrained graph.
 - [ ] Document for training SCUBa-Net.
 - [ ] Document for inference with SCUBa-Net.
+
+## Datasets
+
+![image](https://github.com/user-attachments/assets/551c315d-7aa7-4491-b4d8-374a49487caa)
+
+1. Colon dataset:
+    - KBSMC Colon dataset: [CTrain, CValid & CTest-I](https://drive.google.com/file/d/1KsLvqNdwAnw_WunVyOqi-TIF77BTsn8K/view?usp=sharing)
+    - KBSMC independent test set: [CTest-II](https://drive.google.com/file/d/1taYhjlHydhe6TMn4f5J5Lz9SJ-b0IQeS/view).
+
+2. Prostate dataset:
+    - UHU Prostate dataset: [PTrain, PValid & PTest-I](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OCYCMP)
+    - UBC Prostate dataset (Independent test set): [PTest-II](https://gleason2019.grand-challenge.org/)
+
+3. Gastric dataset:
+    - KBSMC Gastric dataset: [GTrain, GValid, GTest](https://github.com/QuIIL/KBSMC_gastric_cancer_grading_dataset)
+
+4. Bladder dataset:
+    - NMI Bladder dataset: [BTrain, BValid, BTest](https://github.com/zizhaozhang/nmi-wsi-diagnosis)
