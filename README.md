@@ -30,3 +30,20 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 
 4. Bladder dataset:
     - NMI Bladder dataset: [BTrain, BValid, BTest](https://github.com/zizhaozhang/nmi-wsi-diagnosis)
+  
+## Citation
+
+If any part of this code is used, please give appropriate citation to our paper. <br />
+
+BibTex entry: <br />
+```
+@article{Bui2024scubanet,
+title = {Spatially-constrained and -unconstrained bi-graph interaction network for multi-organ pathology image classification},
+journal = {},
+volume = {},
+pages = {},
+year = {2024},
+issn = {},
+author = {Doanh C. Bui and Boram Song and Kyungeun Kim and Jin Tae Kwak},
+}
+```
