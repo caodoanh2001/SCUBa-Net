@@ -7,14 +7,6 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 
 ![image](https://github.com/user-attachments/assets/11e8cf93-6b2f-46cb-a084-a251567ef600)
 
-## To-do list
-
-- [x] Update the implementation of SCUBa-Net.
-- [x] Update datasets used in the study: KBSMC colon datasets, UHU, UBC prostate datasets, gastric and bladder datasets.
-- [x] Document for constructing spatially-contrained graph.
-- [ ] Document for training SCUBa-Net.
-- [ ] Document for inference with SCUBa-Net.
-
 ## Datasets
 
 1. Colon dataset:
@@ -31,9 +23,9 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 4. Bladder dataset:
     - NMI Bladder dataset: [BTrain, BValid, BTest](https://github.com/zizhaozhang/nmi-wsi-diagnosis)
 
-## Obtain spatially-constrained graph
+## Obtain node embeddings for spatially-constrained graph
 
-We provide the process to obtain the spatially-constrained graph, as described in Section III. Methodology (B.2) in `spatially_constrained_graph` folder:
+We provide the process to obtain the node embeddings spatially-constrained graph, as described in Section III. Methodology (B.2) in `spatially_constrained_graph` folder:
 
 1. First, an patch image sould be tiled into sub-patches:
 
@@ -52,7 +44,23 @@ python 2.train_clr.py
 ```
 python 3.build_graphs.py --data_path /path/to/dataset --data_graph_path /path/to/output/graph
 ```
-  
+
+## Training SCUBa-Net
+
+Use the script `train.py` and specify the directory path of the dataset images (to build the spatially-unconstrained graph), and the path of the node embeddings mentioned above to build the spatially-constrained graph.
+
+```
+CUDA_VISIBLE_DEVICES=[gpu id] python train.py --image_path /path/to/dataset --spatially_constrained_graph_path /path/to/output/graph
+```
+
+## Evaluating SCUBa-Net
+
+Specify the directory path of the test dataset images as well as the corresponding node embeddings:
+
+```
+CUDA_VISIBLE_DEVICES=[gpu id] python test.py --image_path /path/to/dataset --spatially_constrained_graph_path /path/to/output/graph
+```
+
 ## Citation
 
 If any part of this code is used, please give appropriate citation to our paper. <br />
