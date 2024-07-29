@@ -11,7 +11,7 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 
 - [x] Update the implementation of SCUBa-Net.
 - [x] Update datasets used in the study: KBSMC colon datasets, UHU, UBC prostate datasets, gastric and bladder datasets.
-- [ ] Document for constructing spatially-contrained graph.
+- [x] Document for constructing spatially-contrained graph.
 - [ ] Document for training SCUBa-Net.
 - [ ] Document for inference with SCUBa-Net.
 
@@ -30,6 +30,28 @@ In this study, we propose a parallel, bi-graph neural network, designated as SCU
 
 4. Bladder dataset:
     - NMI Bladder dataset: [BTrain, BValid, BTest](https://github.com/zizhaozhang/nmi-wsi-diagnosis)
+
+## Obtain spatially-constrained graph
+
+We provide the process to obtain the spatially-constrained graph, as described in Section III. Methodology (B.2) in `spatially_constrained_graph` folder:
+
+1. First, an patch image sould be tiled into sub-patches:
+
+```
+python 1.crop_sub_patch_images.py --data_path /path/to/dataset --data_output_path /path/to/output
+```
+
+2. Then, modify the paths in `config_clr.yaml` to train the SimCLR model for EfficientNetB0 to obtain the embedding network **H^c** (only trained on training set):
+
+```
+python 2.train_clr.py
+```
+
+3. Obtain node embeddings for the spatially-constrained graph:
+
+```
+python 3.build_graphs.py --data_path /path/to/dataset --data_graph_path /path/to/output/graph
+```
   
 ## Citation
 
